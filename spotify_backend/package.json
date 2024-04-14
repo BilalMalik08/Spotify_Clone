@@ -1,0 +1,11 @@
+{
+  "name": "spotify_backend",
+  "version": "1.0.0",
+  "description": "This will contain the backend code for the spotify clone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dev Bilal",
+  "license": "ISC"
+}
