@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "This will contain the backend code for the spotify clone.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "Dev Bilal",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.1",
+    "nodemon": "^3.1.0",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1"
+  }
 }
