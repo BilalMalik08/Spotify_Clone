@@ -6,6 +6,7 @@ import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
 import User from "./models/userModel.js";
 import authRoutes from "./routes/authRoute.js";
 import songRoutes from "./routes/songRoute.js";
+import playlistRoutes from "./routes/playlistRoute.js";
 
 dotenv.config();
 
@@ -60,6 +61,9 @@ app.use("/login", authRoutes);
 
 // Song routes
 app.use("/song", songRoutes);
+
+// Playlist routes
+app.use("/playlist", playlistRoutes);
 
 // Server setup
 app.listen(port, () => {

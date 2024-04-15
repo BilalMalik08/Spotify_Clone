@@ -6,9 +6,9 @@ import { getToken } from "../utils/helper.js";
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
-  const { email, password, firstName, lastName, username } = req.body;
-
   try {
+    const { email, password, firstName, lastName, username } = req.body;
+
     const user = await User.findOne({ email: email });
     if (user) {
       return res
@@ -32,6 +32,7 @@ router.post("/register", async (req, res) => {
     const userToReturn = { ...newUser.toJSON(), token };
 
     delete userToReturn.password;
+
     return res.status(200).json(userToReturn);
   } catch (error) {
     console.error("Error registering user:", error);
@@ -40,9 +41,9 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
   try {
+    const { email, password } = req.body;
+
     const user = await User.findOne({ email: email });
 
     console.log("User:", user);
@@ -60,9 +61,11 @@ router.post("/login", async (req, res) => {
     }
 
     const token = await getToken(user.email, user);
+
     const userToReturn = { ...user.toJSON(), token };
 
     delete userToReturn.password;
+
     return res.status(200).json(userToReturn);
   } catch (error) {
     console.error("Error logging in user:", error);

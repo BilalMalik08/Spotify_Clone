@@ -9,14 +9,25 @@ router.post(
   "/create",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { name, thumbnail, track } = req.body;
-    if (!name || !thumbnail || !track) {
-      res.status(301).json({ error: "Insufficient details to create a song" });
+    try {
+      const { name, thumbnail, track } = req.body;
+
+      if (!name || !thumbnail || !track) {
+        return res
+          .status(301)
+          .json({ error: "Insufficient details to create a song" });
+      }
+
+      const artist = req.user._id;
+
+      const songDetails = { name, thumbnail, track, artist };
+
+      const createdSong = await Song.create(songDetails);
+
+      return res.status(200).json(createdSong);
+    } catch (error) {
+      return res.status(500).json({ error: "Internal server error" });
     }
-    const artist = req.user._id;
-    const songDetails = { name, thumbnail, track, artist };
-    const createdSong = await Song.create(songDetails);
-    return res.status(200).json(createdSong);
   }
 );
 
@@ -24,8 +35,13 @@ router.get(
   "/get/mysongs",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const songs = await Song.find({ artist: req.user._id });
-    return res.status(200).json({ Data: songs });
+    try {
+      const songs = await Song.find({ artist: req.user._id });
+
+      return res.status(200).json({ Data: songs });
+    } catch (error) {
+      return res.status(500).json({ error: "Internal server error" });
+    }
   }
 );
 
@@ -33,15 +49,37 @@ router.get(
   "/get/artist",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
-    const { artistId } = req.body;
+    try {
+      const { artistId } = req.body;
 
-    const artist = await User.find({ _id: artistId });
-    if (!artist) {
-      return res.status(301).json({ error: "Artist does not exist" });
+      const artist = await User.findById(artistId);
+
+      if (!artist) {
+        return res.status(404).json({ error: "Artist does not exist" });
+      }
+
+      const songs = await Song.find({ artist: artistId });
+
+      return res.status(200).json({ Data: songs });
+    } catch (error) {
+      return res.status(500).json({ error: "Internal server error" });
     }
+  }
+);
 
-    const songs = await Song.find({ artist: artistId });
-    return res.status(200).json({ Data: songs });
+router.get(
+  "/get/songname",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { songName } = req.body;
+
+      const songs = await Song.find({ name: songName });
+
+      return res.status(200).json({ Data: songs });
+    } catch (error) {
+      return res.status(500).json({ error: "Internal server error" });
+    }
   }
 );
 
