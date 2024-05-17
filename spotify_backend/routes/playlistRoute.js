@@ -94,7 +94,7 @@ router.post(
       }
 
       if (
-        playlist.owner != currentUser &&
+        !playlist.owner.equals(currentUser._id) &&
         !playlist.collaborators.includes(currentUser._id)
       ) {
         return res.status(400).json({ error: "Not allowed" });

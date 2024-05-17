@@ -46,11 +46,11 @@ router.get(
 );
 
 router.get(
-  "/get/artist",
+  "/get/artist/:artistId",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const { artistId } = req.body;
+      const { artistId } = req.params;
 
       const artist = await User.findById(artistId);
 
@@ -68,11 +68,11 @@ router.get(
 );
 
 router.get(
-  "/get/songname",
+  "/get/songname/:songName",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const { songName } = req.body;
+      const { songName } = req.params;
 
       const songs = await Song.find({ name: songName });
 
