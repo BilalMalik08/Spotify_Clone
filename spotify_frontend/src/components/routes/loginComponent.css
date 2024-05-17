@@ -1,0 +1,66 @@
+.Login-Navbar {
+    height: 12vh;
+}
+
+.Login-Spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.Login-Spotify-Logo {
+    color: #32a280;
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+}
+
+.Login-Spotify-Text {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: default;
+    margin-left: 5px;
+}
+
+.Login-Container {
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login-Form-Label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32a280;
+}
+
+.Login-Form-Control {
+    border: 2px solid #32a280;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+
+}
+
+.Login-Form-Text {
+    font-size: 16px;
+    color: #808080;
+}
+
+.Login-BTN {
+    background-color: #32a280;
+    border: none;
+    border-radius: 12px;
+    font-size: 20px;
+
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Login-BTN:hover {
+    background-color: #218e72;
+}
