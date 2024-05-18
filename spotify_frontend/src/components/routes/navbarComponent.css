@@ -1,0 +1,30 @@
+.Navbar .nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.Container-Fluid {
+    margin-left: 48%;
+}
+
+.line {
+    color: white;
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.btn-signup {
+    margin-right: 8px;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.btn-login {
+    margin-left: 8px;
+    color: black;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 5px 15px;
+}

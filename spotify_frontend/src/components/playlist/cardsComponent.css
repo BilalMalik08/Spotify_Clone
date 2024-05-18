@@ -1,0 +1,25 @@
+.heading {
+    margin-left: 35px;
+    color: white;
+    font-weight: bold;
+}
+
+.Card {
+    height: 35vh;
+    width: 43vw;
+    margin-left: 35px;
+}
+
+.Card-Img-Top {
+    height: 20vh;
+    width: 33vw;
+
+}
+
+.Card-Body {
+    overflow: hidden;
+}
+
+.Card-Title {
+    overflow: hidden;
+}
