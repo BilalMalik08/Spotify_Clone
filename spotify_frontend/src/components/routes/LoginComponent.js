@@ -2,6 +2,7 @@ import React from "react";
 import "./loginComponent.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 function LoginComponent() {
   return (
@@ -65,9 +66,11 @@ function LoginComponent() {
           </div>
 
           <div className="Login-Signup-BTN-Container">
-            <button type="submit" className="btn btn-dark Login-Signup-BTN">
-              SIGN UP FOR SPOTIFY
-            </button>
+            <Link to="/signup">
+              <button type="submit" className="btn btn-dark Login-Signup-BTN">
+                SIGN UP FOR SPOTIFY
+              </button>
+            </Link>
           </div>
         </form>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "./cardsComponent.css";
 import image from "../../image.jpg";
 
-function FocusComponent() {
+function SpotifyPlaylistComponent() {
   const cardData = [
     { title: "Card title 1", text: "Text for card 1" },
     { title: "Card title 2", text: "Text for card 2" },
@@ -14,7 +14,7 @@ function FocusComponent() {
   return (
     <>
       <div className="row Playlist-Row-1">
-        <h3 className="heading">Focus</h3>
+        <h3 className="heading">Spotify Playlist</h3>
         <div className="cards">
           <div className="row row-cols-1 row-cols-md-5 g-1">
             {cardData.map((card, index) => (
@@ -39,4 +39,4 @@ function FocusComponent() {
   );
 }
 
-export default FocusComponent;
+export default SpotifyPlaylistComponent;

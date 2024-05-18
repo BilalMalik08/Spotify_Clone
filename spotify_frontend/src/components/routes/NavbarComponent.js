@@ -7,9 +7,6 @@ function NavbarComponent() {
     <>
       <nav className="navbar navbar-expand-lg Navbar">
         <div className="container-fluid Container-Fluid">
-          {/* <Link className="nav-link active" aria-current="page" to="/">
-            Home
-          </Link> */}
           <button
             className="navbar-toggler"
             type="button"
@@ -39,12 +36,16 @@ function NavbarComponent() {
             </ul>
             <span className="line">|</span>
             <form className="d-flex" role="search">
-              <button className="btn btn-dark  btn-signup" type="submit">
-                Sign up
-              </button>
-              <button className="btn btn-light btn-login" type="submit">
-                Log in
-              </button>
+              <Link to="/signup">
+                <button className="btn btn-dark  btn-signup" type="submit">
+                  Sign up
+                </button>
+              </Link>
+              <Link to="/login">
+                <button className="btn btn-light btn-login" type="submit">
+                  Log in
+                </button>
+              </Link>
             </form>
           </div>
         </div>

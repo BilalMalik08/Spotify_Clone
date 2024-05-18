@@ -12,3 +12,7 @@
     height: 90vh;
     background-color: #121111;
 }
+
+.Home-Row-3::-webkit-scrollbar {
+    display: none;
+}

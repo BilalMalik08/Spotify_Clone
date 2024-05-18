@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import passport from "passport";
 import { Strategy as JwtStrategy, ExtractJwt } from "passport-jwt";
+import cors from "cors";
 import User from "./models/userModel.js";
 import authRoutes from "./routes/authRoute.js";
 import songRoutes from "./routes/songRoute.js";
@@ -14,7 +15,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
+// Enable CORS
+app.use(cors());
+
+// Enable body-parser (included in express)
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection setup
 const url =

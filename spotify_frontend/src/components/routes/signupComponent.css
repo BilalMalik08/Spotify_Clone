@@ -26,11 +26,10 @@
 }
 
 .Signup-Container {
-    height: 82vh;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
 }
 
 .Signup-Form-Text-Center {
@@ -54,7 +53,6 @@
     border-radius: 12px;
     width: 100%;
     font-size: 20px;
-
 }
 
 .Signup-Form-Text {
@@ -87,4 +85,24 @@
 .Signup-Line {
     border: 1px solid #32a280;
     margin: 20px 0px;
+}
+
+/* Added styles for first and last name fields side by side */
+.Signup-Name-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.Signup-Name-Field {
+    flex: 1;
+}
+
+
+.Signup-Password-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.Signup-Password-Field {
+    flex: 1;
 }

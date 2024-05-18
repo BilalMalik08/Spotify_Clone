@@ -8,7 +8,11 @@
     height: 35vh;
     width: 43vw;
     margin-left: 35px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
 }
+
 
 .Card-Img-Top {
     height: 20vh;
@@ -18,6 +22,7 @@
 
 .Card-Body {
     overflow: hidden;
+    cursor: default;
 }
 
 .Card-Title {
