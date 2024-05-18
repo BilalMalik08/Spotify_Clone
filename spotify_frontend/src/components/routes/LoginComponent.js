@@ -16,7 +16,10 @@ function LoginComponent() {
       </nav>
 
       <div className="container-fluid Login-Container">
-        <form>
+        <form className="Login-Form">
+          <div className="form-text Login-Form-Text Login-Form-Text-Center">
+            <span>To Continue, LOG IN To Spotify</span>
+          </div>
           <div className="mb-3">
             <label
               htmlFor="exampleInputEmail1"
@@ -29,6 +32,7 @@ function LoginComponent() {
               className="form-control Login-Form-Control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              placeholder="Enter your email"
             />
             <div className="form-text Login-Form-Text" id="emailHelp">
               We'll never share your email with anyone else.
@@ -45,12 +49,26 @@ function LoginComponent() {
               type="password"
               className="form-control Login-Form-Control"
               id="exampleInputPassword1"
+              placeholder="Enter your password"
             />
           </div>
 
-          <button type="submit" className="btn btn-primary Login-BTN">
-            Submit
-          </button>
+          <div className="Login-BTN-Container">
+            <button type="submit" className="btn btn-dark Login-BTN">
+              LOG IN
+            </button>
+          </div>
+
+          <div className="Login-Line"></div>
+          <div className="form-text Login-Form-Text">
+            Don't have an account?
+          </div>
+
+          <div className="Login-Signup-BTN-Container">
+            <button type="submit" className="btn btn-dark Login-Signup-BTN">
+              SIGN UP FOR SPOTIFY
+            </button>
+          </div>
         </form>
       </div>
     </>

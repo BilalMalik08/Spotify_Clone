@@ -1,22 +1,22 @@
-.Login-Navbar {
+.Signup-Navbar {
     height: 12vh;
 }
 
-.Login-Spotify {
+.Signup-Spotify {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto;
 }
 
-.Login-Spotify-Logo {
+.Signup-Spotify-Logo {
     color: #32a280;
     height: 50px;
     width: 50px;
     margin-right: 5px;
 }
 
-.Login-Spotify-Text {
+.Signup-Spotify-Text {
     font-size: 30px;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
@@ -25,30 +25,30 @@
     margin-left: 5px;
 }
 
-.Login-Container {
+.Signup-Container {
     height: 82vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.Login-Form-Text-Center {
+.Signup-Form-Text-Center {
     text-align: center;
     margin: 10px;
     padding: 10px;
 }
 
-.Login-Form-Text-Center span {
+.Signup-Form-Text-Center span {
     font-size: 20px;
 }
 
-.Login-Form-Label {
+.Signup-Form-Label {
     font-size: 24px;
     font-weight: bold;
     color: #32a280;
 }
 
-.Login-Form-Control {
+.Signup-Form-Control {
     border: 2px solid #32a280;
     border-radius: 12px;
     width: 100%;
@@ -56,18 +56,18 @@
 
 }
 
-.Login-Form-Text {
+.Signup-Form-Text {
     font-size: 16px;
     font-weight: bold;
     color: black;
 }
 
-.Login-BTN-Container {
+.Signup-BTN-Container {
     display: flex;
     justify-content: flex-end;
 }
 
-.Login-BTN {
+.Signup-BTN {
     background-color: #32a280;
     border: none;
     border-radius: 25px;
@@ -79,33 +79,11 @@
     transition: background-color 0.3s ease;
 }
 
-.Login-BTN:hover {
+.Signup-BTN:hover {
     background-color: #218e72;
 }
 
-.Login-Line {
+.Signup-Line {
     border: 1px solid #32a280;
     margin: 20px 0px;
-}
-
-.Login-Signup-BTN-Container {
-    display: flex;
-    justify-content: center;
-}
-
-.Login-Signup-BTN {
-    width: 100%;
-    background-color: white;
-    border-radius: 25px;
-    margin: 10px 0px;
-    padding: 5px 25px;
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.Login-Signup-BTN:hover {
-    background-color: #218e72;
 }
