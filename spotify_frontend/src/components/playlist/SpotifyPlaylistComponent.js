@@ -1,27 +1,46 @@
 import React from "react";
 import "./cardsComponent.css";
-import image from "../../image.jpg";
 
 function SpotifyPlaylistComponent() {
   const cardData = [
-    { title: "Card title 1", text: "Text for card 1" },
-    { title: "Card title 2", text: "Text for card 2" },
-    { title: "Card title 3", text: "Text for card 3" },
-    { title: "Card title 4", text: "Text for card 4" },
-    { title: "Card title 5", text: "Text for card 5" },
+    {
+      title: "Atif's Playlist",
+      text: "Best of Atif Aslam",
+      thumbnail: require("../../images/AtifPlaylist.jpg"),
+    },
+    {
+      title: "Arijit's Playlist",
+      text: "Top Tracks by Arijit",
+      thumbnail: require("../../images/ArijitPlaylist.jpg"),
+    },
+    {
+      title: "Kaifi's Playlist",
+      text: "Must-listen Songs KK",
+      thumbnail: require("../../images/KaifiPlaylist.jpg"),
+    },
+    {
+      title: "Dua's Playlist",
+      text: "Performances by Dua",
+      thumbnail: require("../../images/DuaPlaylist.jpg"),
+    },
+    {
+      title: "Momina's Playlist",
+      text: "Hits by Momina",
+      thumbnail: require("../../images/MominaPlaylist.jpg"),
+    },
   ];
 
   return (
     <>
       <div className="row Playlist-Row-1">
-        <h3 className="heading">Spotify Playlist</h3>
+        <h3 className="heading">Playlists</h3>
         <div className="cards">
           <div className="row row-cols-1 row-cols-md-5 g-1">
             {cardData.map((card, index) => (
               <div className="col" key={index}>
                 <div className="card Card">
                   <img
-                    src={image}
+                    src={card.thumbnail}
                     className="card-img-top Card-Img-Top"
                     alt="..."
                   />

@@ -11,7 +11,7 @@ function SuccessComponent({ message, setShowSuccess }) {
       setFadeOut(true);
       setTimeout(() => {
         setShowSuccess(false);
-      }, 300); // Delay to allow fade-out animation to complete
+      }, 300);
     }, 3000);
 
     return () => clearTimeout(timer);
@@ -24,7 +24,7 @@ function SuccessComponent({ message, setShowSuccess }) {
       }`}
       role="alert"
     >
-      <FontAwesomeIcon className="success-icon" icon={faCheckCircle} />{" "}
+      <FontAwesomeIcon className="success-icon" icon={faCheckCircle} />
       {message}
     </div>
   );

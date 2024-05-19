@@ -1,14 +1,33 @@
 import React from "react";
 import "./cardsComponent.css";
-import image from "../../image.jpg";
 
 function FocusComponent() {
   const cardData = [
-    { title: "Card title 1", text: "Text for card 1" },
-    { title: "Card title 2", text: "Text for card 2" },
-    { title: "Card title 3", text: "Text for card 3" },
-    { title: "Card title 4", text: "Text for card 4" },
-    { title: "Card title 5", text: "Text for card 5" },
+    {
+      title: "Atif Aslam",
+      text: "Trending Songs",
+      thumbnail: require("../../images/AtifAslam.jpg"),
+    },
+    {
+      title: "Arijit Singh",
+      text: "Latest Hits",
+      thumbnail: require("../../images/ArijitSingh.jpg"),
+    },
+    {
+      title: "Kaifi Khalil",
+      text: "Top Tracks",
+      thumbnail: require("../../images/KaifiKhalil.jpg"),
+    },
+    {
+      title: "Dua Lipa",
+      text: "Iconic Performances",
+      thumbnail: require("../../images/DuaLipa.jpg"),
+    },
+    {
+      title: "Momina",
+      text: "Best Performances",
+      thumbnail: require("../../images/MominaMustehsan.jpg"),
+    },
   ];
 
   return (
@@ -21,7 +40,7 @@ function FocusComponent() {
               <div className="col" key={index}>
                 <div className="card Card">
                   <img
-                    src={image}
+                    src={card.thumbnail}
                     className="card-img-top Card-Img-Top"
                     alt="..."
                   />

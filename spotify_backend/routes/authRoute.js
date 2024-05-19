@@ -9,6 +9,19 @@ router.post("/register", async (req, res) => {
   try {
     const { email, password, firstName, lastName, username } = req.body;
 
+    if (!email) {
+      return res.status(400).json({ error: "Email is required" });
+    }
+    if (!password) {
+      return res.status(400).json({ error: "Password is required" });
+    }
+    if (!firstName) {
+      return res.status(400).json({ error: "First name is required" });
+    }
+    if (!username) {
+      return res.status(400).json({ error: "User name is required" });
+    }
+
     const user = await User.findOne({ email: email });
     if (user) {
       return res

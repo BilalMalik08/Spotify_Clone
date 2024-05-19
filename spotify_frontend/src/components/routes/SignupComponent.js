@@ -51,7 +51,7 @@ function SignupComponent() {
         setSuccessMessage("User registered successfully!");
         setShowSuccess(true);
         setTimeout(() => {
-          navigate("/");
+          navigate("/home");
         }, 3000);
       } else {
         console.log("Token not found in response");

@@ -1,14 +1,33 @@
 import React from "react";
 import "./cardsComponent.css";
-import image from "../../image.jpg";
 
 function SoundOfPakistanComponent() {
   const cardData = [
-    { title: "Card title 1", text: "Text for card 1" },
-    { title: "Card title 2", text: "Text for card 2" },
-    { title: "Card title 3", text: "Text for card 3" },
-    { title: "Card title 4", text: "Text for card 4" },
-    { title: "Card title 5", text: "Text for card 5" },
+    {
+      title: "Aima Baig",
+      text: "Trending Songs",
+      thumbnail: require("../../images/AimaBaig.jpg"),
+    },
+    {
+      title: "Qurat Ul Ain",
+      text: "Latest Hits",
+      thumbnail: require("../../images/QuratUlAin.jpg"),
+    },
+    {
+      title: "Farhan Saeed",
+      text: "Top Tracks",
+      thumbnail: require("../../images/FarhanSaeed.jpg"),
+    },
+    {
+      title: "Meesha Shafi",
+      text: "Iconic Performances",
+      thumbnail: require("../../images/MeeshaShafi.jpg"),
+    },
+    {
+      title: "Asim Azhar",
+      text: "Best Performances",
+      thumbnail: require("../../images/AsimAzhar.jpg"),
+    },
   ];
 
   return (
@@ -21,7 +40,7 @@ function SoundOfPakistanComponent() {
               <div className="col" key={index}>
                 <div className="card Card">
                   <img
-                    src={image}
+                    src={card.thumbnail}
                     className="card-img-top Card-Img-Top"
                     alt="..."
                   />
