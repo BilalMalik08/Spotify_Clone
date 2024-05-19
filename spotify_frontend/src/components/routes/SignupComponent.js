@@ -1,19 +1,30 @@
+import "./signupComponent.css";
 import React, { useState } from "react";
 import axios from "axios";
-import "./signupComponent.css";
+import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { api } from "../../utils/api";
+import SuccessComponent from "../popups/SuccessComponent";
+import ErrorComponent from "../popups/ErrorComponent";
 
 function SignupComponent() {
-  const [formData, setFormData] = useState({
+  const [cookie, setCookie] = useCookies(["authToken"]);
+  const navigate = useNavigate();
+  const initialFormData = {
     email: "",
     username: "",
     password: "",
     confirmPassword: "",
     firstName: "",
     lastName: "",
-  });
+  };
+  const [formData, setFormData] = useState(initialFormData);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const signup = async (e) => {
     e.preventDefault();
@@ -21,7 +32,8 @@ function SignupComponent() {
       formData;
 
     if (password !== confirmPassword) {
-      alert("Password does not match");
+      setErrorMessage("Passwords do not match");
+      setShowError(true);
       return;
     }
 
@@ -30,17 +42,31 @@ function SignupComponent() {
     try {
       const response = await axios.post(`${api}/auth/register`, data);
       console.log("User registered successfully:", response.data);
-      // Optionally, redirect the user or show a success message
+      if (response.data.token) {
+        setCookie("authToken", response.data.token, {
+          path: "/",
+          expires: new Date(Date.now() + 2592000000),
+        });
+        setFormData(initialFormData);
+        setSuccessMessage("User registered successfully!");
+        setShowSuccess(true);
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
+      } else {
+        console.log("Token not found in response");
+      }
     } catch (error) {
       console.error(
         "Error registering user:",
         error.response ? error.response.data : error.message
       );
-      alert(
+      setErrorMessage(
         error.response
           ? error.response.data.error
           : "An error occurred. Please try again."
       );
+      setShowError(true);
     }
   };
 
@@ -51,6 +77,15 @@ function SignupComponent() {
 
   return (
     <>
+      {showSuccess && (
+        <SuccessComponent
+          message={successMessage}
+          setShowSuccess={setShowSuccess}
+        />
+      )}
+      {showError && (
+        <ErrorComponent message={errorMessage} setShowError={setShowError} />
+      )}
       <nav className="navbar bg-dark Signup-Navbar">
         <div className="container Signup-Navbar-Container">
           <div className="Signup-Spotify">
@@ -59,7 +94,6 @@ function SignupComponent() {
           </div>
         </div>
       </nav>
-
       <div className="container-fluid Signup-Container">
         <form className="Signup-Form" onSubmit={signup}>
           <div className="form-text Signup-Form-Text Signup-Form-Text-Center">
