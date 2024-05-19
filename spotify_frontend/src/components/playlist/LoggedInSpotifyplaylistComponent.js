@@ -1,39 +1,39 @@
 import React from "react";
 import "./cardsComponent.css";
 
-function SoundOfPakistanComponent() {
+function LoggedInSpotifyPlaylistComponent() {
   const cardData = [
     {
-      title: "Aima Baig",
-      text: "Top Hits",
-      thumbnail: require("../../images/AimaBaig.jpg"),
+      title: "Atif's Playlist",
+      text: "Best of Atif Aslam",
+      thumbnail: require("../../images/AtifPlaylist.jpg"),
     },
     {
-      title: "Qurat Ul Ain",
-      text: "Chart-Toppers",
-      thumbnail: require("../../images/QuratUlAin.jpg"),
+      title: "Arijit's Playlist",
+      text: "Top Tracks by Arijit",
+      thumbnail: require("../../images/ArijitPlaylist.jpg"),
     },
     {
-      title: "Farhan Saeed",
-      text: "Popular Tracks",
-      thumbnail: require("../../images/FarhanSaeed.jpg"),
+      title: "Kaifi's Playlist",
+      text: "Must-listen Songs KK",
+      thumbnail: require("../../images/KaifiPlaylist.jpg"),
     },
     {
-      title: "Meesha Shafi",
-      text: "Memorable Gigs",
-      thumbnail: require("../../images/MeeshaShafi.jpg"),
+      title: "Dua's Playlist",
+      text: "Performances by Dua",
+      thumbnail: require("../../images/DuaPlaylist.jpg"),
     },
     {
-      title: "Asim Azhar",
-      text: "Fan Favorites",
-      thumbnail: require("../../images/AsimAzhar.jpg"),
+      title: "Momina's Playlist",
+      text: "Hits by Momina",
+      thumbnail: require("../../images/MominaPlaylist.jpg"),
     },
   ];
 
   return (
     <>
       <div className="row Playlist-Row-1">
-        <h3 className="heading">Sound Of Pakistan</h3>
+        <h3 className="heading">Playlists</h3>
         <div className="cards">
           <div className="row row-cols-1 row-cols-md-5 g-1">
             {cardData.map((card, index) => (
@@ -58,4 +58,4 @@ function SoundOfPakistanComponent() {
   );
 }
 
-export default SoundOfPakistanComponent;
+export default LoggedInSpotifyPlaylistComponent;

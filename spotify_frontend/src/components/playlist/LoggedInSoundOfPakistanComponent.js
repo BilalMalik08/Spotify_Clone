@@ -1,7 +1,7 @@
 import React from "react";
 import "./cardsComponent.css";
 
-function SoundOfPakistanComponent() {
+function LoggedInSoundOfPakistanComponent() {
   const cardData = [
     {
       title: "Aima Baig",
@@ -58,4 +58,4 @@ function SoundOfPakistanComponent() {
   );
 }
 
-export default SoundOfPakistanComponent;
+export default LoggedInSoundOfPakistanComponent;

@@ -1,39 +1,39 @@
-import React from "react";
 import "./cardsComponent.css";
+import React from "react";
 
-function SoundOfPakistanComponent() {
+function LoggedInFocusComponent() {
   const cardData = [
     {
-      title: "Aima Baig",
-      text: "Top Hits",
-      thumbnail: require("../../images/AimaBaig.jpg"),
+      title: "Atif Aslam",
+      text: "Trending Songs",
+      thumbnail: require("../../images/AtifAslam.jpg"),
     },
     {
-      title: "Qurat Ul Ain",
-      text: "Chart-Toppers",
-      thumbnail: require("../../images/QuratUlAin.jpg"),
+      title: "Arijit Singh",
+      text: "Latest Hits",
+      thumbnail: require("../../images/ArijitSingh.jpg"),
     },
     {
-      title: "Farhan Saeed",
-      text: "Popular Tracks",
-      thumbnail: require("../../images/FarhanSaeed.jpg"),
+      title: "Kaifi Khalil",
+      text: "Top Tracks",
+      thumbnail: require("../../images/KaifiKhalil.jpg"),
     },
     {
-      title: "Meesha Shafi",
-      text: "Memorable Gigs",
-      thumbnail: require("../../images/MeeshaShafi.jpg"),
+      title: "Dua Lipa",
+      text: "Iconic Performances",
+      thumbnail: require("../../images/DuaLipa.jpg"),
     },
     {
-      title: "Asim Azhar",
-      text: "Fan Favorites",
-      thumbnail: require("../../images/AsimAzhar.jpg"),
+      title: "Momina",
+      text: "Best Performances",
+      thumbnail: require("../../images/MominaMustehsan.jpg"),
     },
   ];
 
   return (
     <>
       <div className="row Playlist-Row-1">
-        <h3 className="heading">Sound Of Pakistan</h3>
+        <h3 className="heading">Focus</h3>
         <div className="cards">
           <div className="row row-cols-1 row-cols-md-5 g-1">
             {cardData.map((card, index) => (
@@ -58,4 +58,4 @@ function SoundOfPakistanComponent() {
   );
 }
 
-export default SoundOfPakistanComponent;
+export default LoggedInFocusComponent;

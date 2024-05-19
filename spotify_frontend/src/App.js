@@ -8,6 +8,7 @@ import {
 import LoginComponent from "./components/routes/LoginComponent.js";
 import SignupComponent from "./components/routes/SignupComponent.js";
 import HomeComponent from "./components/routes/HomeComponent.js";
+import LoggedInHomeComponent from "./components/routes/LoggedInHomeComponent.js";
 import { useCookies } from "react-cookie";
 
 function App() {
@@ -19,11 +20,14 @@ function App() {
         <Routes>
           {cookies.authToken ? (
             <>
-              <Route path="/home" element={<HomeComponent />} />{" "}
+              {/* Logged In Routes */}
+              <Route path="/home" element={<LoggedInHomeComponent />} />
+              <Route path="/uploadsong" element={<LoggedInHomeComponent />} />
               <Route path="*" element={<Navigate to="/home" />} />
             </>
           ) : (
             <>
+              {/* Logged Out Routes */}
               <Route path="/home" element={<HomeComponent />} />
               <Route path="/login" element={<LoginComponent />} />
               <Route path="/signup" element={<SignupComponent />} />
