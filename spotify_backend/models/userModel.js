@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -12,27 +12,28 @@ const UserSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique: true,
   },
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
     required: true,
-    private: true,
   },
   likedSongs: {
     type: Array,
-    default: "",
+    default: [],
   },
   likedPlaylists: {
     type: Array,
-    default: "",
+    default: [],
   },
   subscribedArtists: {
     type: Array,
-    default: "",
+    default: [],
   },
 });
 

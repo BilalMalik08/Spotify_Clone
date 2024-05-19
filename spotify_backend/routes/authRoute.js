@@ -19,14 +19,19 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ error: "First name is required" });
     }
     if (!username) {
-      return res.status(400).json({ error: "User name is required" });
+      return res.status(400).json({ error: "Username is required" });
     }
 
-    const user = await User.findOne({ email: email });
-    if (user) {
+    const userByEmail = await User.findOne({ email });
+    if (userByEmail) {
       return res
         .status(403)
         .json({ error: "A user with this email already exists" });
+    }
+
+    const userByUsername = await User.findOne({ username });
+    if (userByUsername) {
+      return res.status(403).json({ error: "Username not available" });
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -43,7 +48,6 @@ router.post("/register", async (req, res) => {
     const token = await getToken(email, newUser);
 
     const userToReturn = { ...newUser.toJSON(), token };
-
     delete userToReturn.password;
 
     return res.status(200).json(userToReturn);
@@ -57,18 +61,13 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email: email });
-
-    console.log("User:", user);
+    const user = await User.findOne({ $or: [{ email }, { username: email }] });
 
     if (!user) {
       return res.status(403).json({ error: "Invalid Credentials" });
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
-
-    console.log("Is password valid:", isPasswordValid);
-
     if (!isPasswordValid) {
       return res.status(403).json({ error: "Invalid Credentials" });
     }
@@ -76,7 +75,6 @@ router.post("/login", async (req, res) => {
     const token = await getToken(user.email, user);
 
     const userToReturn = { ...user.toJSON(), token };
-
     delete userToReturn.password;
 
     return res.status(200).json(userToReturn);

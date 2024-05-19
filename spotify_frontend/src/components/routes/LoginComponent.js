@@ -88,17 +88,17 @@ function LoginComponent() {
               htmlFor="exampleInputEmail1"
               className="form-label Login-Form-Label"
             >
-              Email address
+              Email address or Username
             </label>
             <input
-              type="email"
+              type="text"
               className="form-control Login-Form-Control"
               id="exampleInputEmail1"
               name="email"
               value={formData.email}
               onChange={handleChange}
               aria-describedby="emailHelp"
-              placeholder="Enter your email"
+              placeholder="Enter your email or username"
             />
           </div>
           <div className="mb-3">
