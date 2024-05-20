@@ -11,7 +11,7 @@ function ErrorComponent({ message, setShowError }) {
       setFadeOut(true);
       setTimeout(() => {
         setShowError(false);
-      }, 300); // Delay to allow fade-out animation to complete
+      }, 300);
     }, 3000);
 
     return () => clearTimeout(timer);

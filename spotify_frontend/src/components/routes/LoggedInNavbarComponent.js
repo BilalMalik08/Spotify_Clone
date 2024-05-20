@@ -43,7 +43,7 @@ function LoggedInNavbarComponent() {
               </Link>
               <Link to="/home">
                 <button className="btn btn-light btn-login" type="submit">
-                  Bilal
+                  Spotify
                 </button>
               </Link>
             </form>

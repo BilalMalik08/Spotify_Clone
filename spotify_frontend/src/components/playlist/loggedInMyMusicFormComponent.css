@@ -3,6 +3,7 @@
     margin-top: 5px;
     color: white;
     font-weight: bold;
+    cursor: default;
 }
 
 .My-Music-FormComponent-Container {
@@ -30,8 +31,13 @@
     background: transparent;
 }
 
+.My-Music-Card:hover {
+    background-color: #333333;
+    transition: background-color 0.3s;
+}
+
 .My-Music-IMG {
-    height: 85%;
+    height: 95%;
     width: 85%;
 }
 
@@ -94,7 +100,7 @@
 
 .seek-bar {
     width: 20%;
-    margin-top: 10px;
+    margin-top: 20px;
     background: transparent;
     cursor: pointer;
     position: absolute;

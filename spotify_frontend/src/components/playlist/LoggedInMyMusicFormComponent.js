@@ -3,11 +3,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { makeAuthenticatedGETRequest } from "../../utils/serverHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
-import { Howl, Howler } from "howler";
+import { Howl } from "howler";
+import ErrorComponent from "../popups/ErrorComponent";
 
 function LoggedInMyMusicFormComponent() {
   const [songs, setSongs] = useState([]);
   const [error, setError] = useState(null);
+  const [showError, setShowError] = useState(false);
   const [audio, setAudio] = useState(null);
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,10 +26,12 @@ function LoggedInMyMusicFormComponent() {
           setError(
             response && response.error ? response.error : "Unknown error"
           );
+          setShowError(true);
         }
       })
       .catch((error) => {
         setError(error.message || "Unknown error");
+        setShowError(true);
       });
 
     return () => {
@@ -86,10 +90,6 @@ function LoggedInMyMusicFormComponent() {
     }
   };
 
-  if (error) {
-    return <div>Error fetching songs: {error}</div>;
-  }
-
   return (
     <>
       <div className="row My-Music-FormComponent-Row1">
@@ -114,7 +114,11 @@ function LoggedInMyMusicFormComponent() {
                         {song.name || "Unknown Artist"}
                       </h5>
                       <p className="card-text My-Music-Text">
-                        {song.artist.firstName + " " + song.artist.lastName}
+                        {"Uploaded by" +
+                          " " +
+                          song.artist.firstName +
+                          " " +
+                          song.artist.lastName}
                       </p>
                     </div>
 
@@ -133,9 +137,9 @@ function LoggedInMyMusicFormComponent() {
                     )}
 
                     <div className="Icon-Container">
-                      {/* Sound bars effect */}
                       {currentSong === song.track && isPlaying && (
                         <div className="sound-bars ">
+                          <div className="sound-bar Green"></div>
                           <div className="sound-bar White"></div>
                           <div className="sound-bar Green"></div>
                           <div className="sound-bar White"></div>
@@ -168,6 +172,11 @@ function LoggedInMyMusicFormComponent() {
           ))}
         </div>
       </div>
+      {showError && (
+        <div className="container">
+          <ErrorComponent message={error} setShowError={setShowError} />
+        </div>
+      )}
     </>
   );
 }

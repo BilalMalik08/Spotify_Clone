@@ -12,6 +12,7 @@ import LoggedInHomeComponent from "./components/routes/LoggedInHomeComponent.js"
 import LoggedInUploadSongsComponent from "./components/routes/LoggedInUploadSongsComponent.js";
 import { useCookies } from "react-cookie";
 import LoggedInMyMusicComponent from "./components/routes/LoggedInMyMusicComponent.js";
+import LoggedInSearchComponent from "./components/routes/LoggedInSearchComponent.js";
 
 function App() {
   const [cookies] = useCookies(["authToken"]);
@@ -29,6 +30,7 @@ function App() {
                 element={<LoggedInUploadSongsComponent />}
               />{" "}
               <Route path="/mymusic" element={<LoggedInMyMusicComponent />} />
+              <Route path="/search" element={<LoggedInSearchComponent />} />
               <Route path="*" element={<Navigate to="/home" />} />
             </>
           ) : (

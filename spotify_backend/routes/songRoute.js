@@ -90,9 +90,15 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const { songName } = req.params;
+      let { songName } = req.params;
 
-      const songs = await Song.find({ name: songName });
+      // Modify songName to perform case-insensitive and partial word matching
+      songName = new RegExp(songName, "i");
+
+      const songs = await Song.find({ name: { $regex: songName } }).populate(
+        "artist",
+        "firstName lastName"
+      );
 
       return res.status(200).json({ Data: songs });
     } catch (error) {

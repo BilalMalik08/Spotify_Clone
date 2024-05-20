@@ -1,0 +1,145 @@
+.Search-FormComponent-Heading {
+    margin-left: 35px;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+.Search-Form-Container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.Search-FormComponent-Line {
+    border: 1px solid #32a280;
+    margin: 10px 0;
+}
+
+.Search-Row {
+    overflow: hidden;
+}
+
+.My-Music-Card {
+    width: 90%;
+    margin: 10px auto;
+    background: transparent;
+}
+
+.My-Music-Card:hover {
+    background-color: #333333;
+    transition: background-color 0.3s;
+}
+
+.My-Music-IMG {
+    height: 95%;
+    width: 85%;
+}
+
+.My-Music-Body {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-weight: bold;
+}
+
+.My-Music-Title {
+    font-weight: bold;
+}
+
+.My-Music-Text {
+    font-weight: bold;
+}
+
+.Icon-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.My-Music-Icon {
+    margin: 0 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.My-Music-Icon:hover {
+    transform: scale(1.8);
+    color: #32a280;
+}
+
+.My-Music-Icon.playing {
+    animation: pulse 1s infinite;
+    transform: scale(1.8);
+    color: #32a280;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.seek-bar {
+    width: 20%;
+    margin-top: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #32a280;
+}
+
+.seek-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #32a280;
+}
+
+.sound-bars {
+    display: flex;
+    align-items: center;
+    height: 15px;
+}
+
+.sound-bar {
+    width: 3px;
+    height: 100%;
+    margin: 0 1px;
+    animation: sound-bar-animation 0.2s infinite alternate;
+}
+
+.White {
+    background-color: #ffffff;
+}
+
+.Green {
+    background-color: #32a280;
+}
+
+@keyframes sound-bar-animation {
+    0% {
+        height: 30%;
+    }
+
+    100% {
+        height: 100%;
+    }
+}
