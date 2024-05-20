@@ -11,11 +11,24 @@ router.post(
   async (req, res) => {
     try {
       const { name, thumbnail, track } = req.body;
+      const errors = [];
 
-      if (!name || !thumbnail || !track) {
-        return res
-          .status(301)
-          .json({ error: "Insufficient details to create a song" });
+      if (!name && !thumbnail && !track) {
+        errors.push("All fields are required");
+      } else {
+        if (!name) {
+          errors.push("Name is required");
+        }
+        if (!thumbnail) {
+          errors.push("Thumbnail is required");
+        }
+        if (!track) {
+          errors.push("Track is required");
+        }
+      }
+
+      if (errors.length > 0) {
+        return res.status(400).json({ error: errors.join(", ") });
       }
 
       const artist = req.user._id;
@@ -26,6 +39,7 @@ router.post(
 
       return res.status(200).json(createdSong);
     } catch (error) {
+      console.error("Error creating song:", error);
       return res.status(500).json({ error: "Internal server error" });
     }
   }

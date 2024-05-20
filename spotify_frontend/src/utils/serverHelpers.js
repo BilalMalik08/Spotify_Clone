@@ -1,7 +1,7 @@
 import { api } from "./api";
 
 export const makeUnauthenticatedPOSTRequest = async (route, body) => {
-  const response = await fetch(backendUrl + route, {
+  const response = await fetch(api + route, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,8 +22,19 @@ export const makeAuthenticatedPOSTRequest = async (route, body) => {
     },
     body: JSON.stringify(body),
   });
-  const formattedResponse = await response.json();
-  return formattedResponse;
+
+  let formattedResponse;
+  try {
+    formattedResponse = await response.json();
+  } catch (error) {
+    // Handle cases where the response is not JSON
+    formattedResponse = { error: response.statusText };
+  }
+
+  return {
+    status: response.status,
+    data: formattedResponse,
+  };
 };
 
 export const makeAuthenticatedGETRequest = async (route) => {
@@ -41,8 +52,14 @@ export const makeAuthenticatedGETRequest = async (route) => {
 
 const getToken = () => {
   const accessToken = document.cookie.replace(
-    /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+    /(?:(?:^|.*;\s*)authToken\s*=\s*([^;]*).*$)|^.*$/,
     "$1"
   );
+  console.log("Retrieved Token:", accessToken);
+
+  if (!accessToken) {
+    console.error("Access token not found in cookies");
+  }
+
   return accessToken;
 };

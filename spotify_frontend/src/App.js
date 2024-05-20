@@ -9,6 +9,7 @@ import LoginComponent from "./components/routes/LoginComponent.js";
 import SignupComponent from "./components/routes/SignupComponent.js";
 import HomeComponent from "./components/routes/HomeComponent.js";
 import LoggedInHomeComponent from "./components/routes/LoggedInHomeComponent.js";
+import LoggedInUploadSongsComponent from "./components/routes/LoggedInUploadSongsComponent.js";
 import { useCookies } from "react-cookie";
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
             <>
               {/* Logged In Routes */}
               <Route path="/home" element={<LoggedInHomeComponent />} />
-              <Route path="/uploadsong" element={<LoggedInHomeComponent />} />
+              <Route
+                path="/uploadsong"
+                element={<LoggedInUploadSongsComponent />}
+              />
               <Route path="*" element={<Navigate to="/home" />} />
             </>
           ) : (

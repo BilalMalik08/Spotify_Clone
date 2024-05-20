@@ -1,0 +1,100 @@
+.LoggedIn-UploadSongs-FormComponent-Heading {
+    margin-left: 35px;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Container {
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Form-Text-Center {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Form-Text-Center span {
+    font-size: 20px;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Form-Label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32a280;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Form-Control {
+    border: 2px solid #32a280;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Form-Text {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.LoggedIn-UploadSongs-FormComponent-BTN-Container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.LoggedIn-UploadSongs-FormComponent-BTN {
+    background-color: #32a280;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.LoggedIn-UploadSongs-FormComponent-BTN:hover {
+    background-color: #218e72;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Line {
+    border: 1px solid #32a280;
+    margin: 20px 0px;
+}
+
+/* Added styles for first and last name fields side by side */
+.LoggedIn-UploadSongs-FormComponent-Name-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Name-Field {
+    flex: 1;
+}
+
+
+.LoggedIn-UploadSongs-FormComponent-Password-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.LoggedIn-UploadSongs-FormComponent-Password-Field {
+    flex: 1;
+}
+
+.Cloudinary {
+    background-color: #32a280;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

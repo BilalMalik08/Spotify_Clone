@@ -1,0 +1,20 @@
+.Cloudinary-BTN-Container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Cloudinary-BTN {
+    background-color: #32a280;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Cloudinary-BTN:hover {
+    background-color: #218e72;
+}

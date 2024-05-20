@@ -162,6 +162,6 @@ label[for=nav-toggle] {
     border: 2px solid #32a280;
 }
 
-#nav-toggle:checked~#nav-content .english-btn-container {
+#nav-toggle:checked~#nav-content .english-btn-container2 {
     display: none;
 }
