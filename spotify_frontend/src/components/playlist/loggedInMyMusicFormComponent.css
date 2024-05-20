@@ -7,7 +7,7 @@
 }
 
 .My-Music-FormComponent-Container {
-    height: 82vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

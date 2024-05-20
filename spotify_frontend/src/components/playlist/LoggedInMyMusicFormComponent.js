@@ -2,7 +2,12 @@ import "./loggedInMyMusicFormComponent.css";
 import React, { useState, useEffect, useRef } from "react";
 import { makeAuthenticatedGETRequest } from "../../utils/serverHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faPlay,
+  faPause,
+  faPlusCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { Howl } from "howler";
 import ErrorComponent from "../popups/ErrorComponent";
 
@@ -161,6 +166,11 @@ function LoggedInMyMusicFormComponent() {
                       />
                       <FontAwesomeIcon
                         icon={faHeart}
+                        className="My-Music-Icon"
+                      />
+                      {/* Added playlist icon */}
+                      <FontAwesomeIcon
+                        icon={faPlusCircle}
                         className="My-Music-Icon"
                       />
                     </div>

@@ -92,7 +92,6 @@ router.get(
     try {
       let { songName } = req.params;
 
-      // Modify songName to perform case-insensitive and partial word matching
       songName = new RegExp(songName, "i");
 
       const songs = await Song.find({ name: { $regex: songName } }).populate(

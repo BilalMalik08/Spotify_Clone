@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from "react";
 import "./loggedInSearchFormComponent.css";
 import { makeAuthenticatedGETRequest } from "../../utils/serverHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHeart,
+  faPlay,
+  faPause,
+  faPlusCircle,
+} from "@fortawesome/free-solid-svg-icons"; // Added faPlusCircle for the playlist icon
 import { Howl } from "howler";
 import ErrorComponent from "../popups/ErrorComponent";
 
@@ -177,6 +182,11 @@ function LoggedInSearchFormComponent() {
                         />
                         <FontAwesomeIcon
                           icon={faHeart}
+                          className="My-Music-Icon"
+                        />
+                        {/* Added playlist icon */}
+                        <FontAwesomeIcon
+                          icon={faPlusCircle}
                           className="My-Music-Icon"
                         />
                       </div>
