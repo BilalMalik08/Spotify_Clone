@@ -50,11 +50,15 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const songs = await Song.find({ artist: req.user._id });
-
+      const songs = await Song.find({ artist: req.user._id }).populate(
+        "artist"
+      );
       return res.status(200).json({ Data: songs });
     } catch (error) {
-      return res.status(500).json({ error: "Internal server error" });
+      console.error("Error fetching songs:", error);
+      return res
+        .status(500)
+        .json({ error: error.message || "Internal server error" });
     }
   }
 );

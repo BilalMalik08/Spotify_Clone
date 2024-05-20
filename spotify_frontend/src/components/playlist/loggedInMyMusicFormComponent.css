@@ -32,7 +32,8 @@
 }
 
 .My-Music-IMG {
-    height: 60%;
+    height: 85%;
+    width: 85%;
 }
 
 .My-Music-Body {
@@ -45,8 +46,10 @@
 
 }
 
-
-
 .My-Music-Title {
     overflow: hidden;
+}
+
+.My-Music-Icon {
+    margin: 0 20px;
 }
