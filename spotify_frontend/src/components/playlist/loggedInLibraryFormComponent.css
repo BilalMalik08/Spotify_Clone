@@ -1,0 +1,40 @@
+.Library-Container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 80vh;
+}
+
+.Library-heading {
+    margin-left: 35px;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+
+.Library-Card {
+    height: 28vh;
+    width: 80vw;
+    margin-left: 35px;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+
+.Library-Card-Img-Top {
+    height: 20vh;
+    width: 14vw;
+
+}
+
+.Library-Card-Body {
+    overflow: hidden;
+    cursor: default;
+}
+
+.Library-Card-Title {
+    overflow: hidden;
+}

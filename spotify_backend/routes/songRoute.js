@@ -96,8 +96,7 @@ router.get(
       songName = new RegExp(songName, "i");
 
       const songs = await Song.find({ name: { $regex: songName } }).populate(
-        "artist",
-        "firstName lastName"
+        "artist"
       );
 
       return res.status(200).json({ Data: songs });

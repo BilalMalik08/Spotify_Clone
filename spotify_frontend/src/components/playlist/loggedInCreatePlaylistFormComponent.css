@@ -1,0 +1,101 @@
+.Playlist-Create-FormComponent-Heading {
+    margin-left: 35px;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: default;
+}
+
+.Playlist-Create-FormComponent-Container {
+    height: 82vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Playlist-Create-FormComponent-Form-Text-Center {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.Playlist-Create-FormComponent-Form-Text-Center span {
+    font-size: 20px;
+}
+
+.Playlist-Create-FormComponent-Form-Label {
+    font-size: 24px;
+    font-weight: bold;
+    color: #32a280;
+}
+
+.Playlist-Create-FormComponent-Form-Control {
+    border: 2px solid #32a280;
+    border-radius: 12px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.Playlist-Create-FormComponent-Form-Text {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+.Playlist-Create-FormComponent-BTN-Container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Playlist-Create-FormComponent-BTN {
+    background-color: #32a280;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.Playlist-Create-FormComponent-BTN:hover {
+    background-color: #218e72;
+}
+
+.Playlist-Create-FormComponent-Line {
+    border: 1px solid #32a280;
+    margin: 20px 0px;
+}
+
+/* Added styles for first and last name fields side by side */
+.Playlist-Create-FormComponent-Name-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.Playlist-Create-FormComponent-Name-Field {
+    flex: 1;
+}
+
+
+.Playlist-Create-FormComponent-Password-Container {
+    display: flex;
+    gap: 10px;
+}
+
+.Playlist-Create-FormComponent-Password-Field {
+    flex: 1;
+}
+
+.Cloudinary {
+    background-color: #32a280;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}

@@ -14,10 +14,10 @@ router.post(
       const currentUser = req.user;
       const { name, thumbnail, songs } = req.body;
 
-      if (!name || !thumbnail || !songs) {
+      if (!name || !thumbnail || !songs || !Array.isArray(songs)) {
         return res
-          .status(301)
-          .json({ error: "Insufficient details to create a playlist" });
+          .status(400)
+          .json({ error: "Invalid request body for creating a playlist" });
       }
 
       const playlistData = {
@@ -51,6 +51,28 @@ router.get(
       }
 
       return res.status(200).json(playlist);
+    } catch (error) {
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  }
+);
+
+router.get(
+  "/get/me",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const artistId = req.user._id;
+
+      const artist = await User.findOne({ _id: artistId });
+
+      if (!artist) {
+        return res.status(301).json({ error: "Invalid artist ID" });
+      }
+
+      const playlists = await Playlist.find({ owner: artistId });
+
+      return res.status(200).json({ Data: playlists });
     } catch (error) {
       return res.status(500).json({ error: "Internal server error" });
     }
