@@ -1,5 +1,5 @@
 import "./loggedInMyMusicFormComponent.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { makeAuthenticatedGETRequest } from "../../utils/serverHelpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
@@ -11,12 +11,13 @@ function LoggedInMyMusicFormComponent() {
   const [audio, setAudio] = useState(null);
   const [currentSong, setCurrentSong] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
+  const seekBarRef = useRef(null);
 
   useEffect(() => {
-    console.log("Fetching songs...");
     makeAuthenticatedGETRequest("/song/get/mysongs")
       .then((response) => {
-        console.log("Response:", response);
         if (response && response.Data && response.Data.length > 0) {
           setSongs(response.Data);
         } else {
@@ -26,17 +27,25 @@ function LoggedInMyMusicFormComponent() {
         }
       })
       .catch((error) => {
-        console.error("Error fetching songs:", error);
         setError(error.message || "Unknown error");
       });
 
-    // Cleanup function
     return () => {
       if (audio) {
         audio.unload();
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (audio && isPlaying) {
+      const intervalId = setInterval(() => {
+        setCurrentTime(audio.seek());
+      }, 1000);
+
+      return () => clearInterval(intervalId);
+    }
+  }, [audio, isPlaying]);
 
   const playAudio = (song) => {
     if (currentSong === song.track) {
@@ -53,12 +62,27 @@ function LoggedInMyMusicFormComponent() {
       }
       const newAudio = new Howl({
         src: [song.track],
-        html5: true, // Use HTML5 audio
+        html5: true,
+        onplay: () => {
+          setDuration(newAudio.duration());
+          setCurrentTime(newAudio.seek());
+        },
+        onend: () => {
+          setIsPlaying(false);
+        },
       });
-      newAudio.play();
       setAudio(newAudio);
       setCurrentSong(song.track);
+      newAudio.play();
       setIsPlaying(true);
+    }
+  };
+
+  const handleSeek = (event) => {
+    const seekTo = event.target.value;
+    if (audio) {
+      audio.seek(seekTo);
+      setCurrentTime(seekTo);
     }
   };
 
@@ -93,9 +117,37 @@ function LoggedInMyMusicFormComponent() {
                         {song.artist.firstName + " " + song.artist.lastName}
                       </p>
                     </div>
+
+                    {currentSong === song.track && (
+                      <div className="Seekbar-Container">
+                        <input
+                          type="range"
+                          min="0"
+                          max={duration}
+                          value={currentTime}
+                          onChange={handleSeek}
+                          ref={seekBarRef}
+                          className="seek-bar"
+                        />
+                      </div>
+                    )}
+
                     <div className="Icon-Container">
+                      {/* Sound bars effect */}
+                      {currentSong === song.track && isPlaying && (
+                        <div className="sound-bars ">
+                          <div className="sound-bar White"></div>
+                          <div className="sound-bar Green"></div>
+                          <div className="sound-bar White"></div>
+                          <div className="sound-bar Green"></div>
+                        </div>
+                      )}
                       <FontAwesomeIcon
-                        className="My-Music-Icon"
+                        className={`My-Music-Icon ${
+                          currentSong === song.track && isPlaying
+                            ? "playing"
+                            : ""
+                        }`}
                         icon={
                           currentSong === song.track && isPlaying
                             ? faPause
