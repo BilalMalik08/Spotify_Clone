@@ -1,0 +1,52 @@
+.My-Music-FormComponent-Heading {
+    margin-left: 35px;
+    margin-top: 5px;
+    color: white;
+    font-weight: bold;
+}
+
+.My-Music-FormComponent-Container {
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 35px;
+}
+
+
+.My-Music-FormComponent-Line {
+    border: 1px solid #32a280;
+    margin: 10px 0;
+}
+
+.My-Music-Row {
+    overflow: hidden;
+}
+
+.My-Music-Card {
+    width: 90%;
+    height: 15%;
+    overflow: hidden;
+    background: transparent;
+}
+
+.My-Music-IMG {
+    height: 60%;
+}
+
+.My-Music-Body {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -10px;
+    margin-left: -15px;
+    color: white;
+    font-weight: bold;
+
+}
+
+
+
+.My-Music-Title {
+    overflow: hidden;
+}

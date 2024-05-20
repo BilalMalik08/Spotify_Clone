@@ -63,7 +63,7 @@ function LoggedInUploadSongsFormComponent() {
           Upload Songs
         </h3>
       </div>
-      <div className="row LoggedIn-UploadSongs-FormComponent-Row1">
+      <div className="row LoggedIn-UploadSongs-FormComponent-Row2">
         <div className="container-fluid LoggedIn-UploadSongs-FormComponent-Container">
           <form
             className="LoggedIn-UploadSongs-FormComponent-Form"

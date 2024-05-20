@@ -10,6 +10,8 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.1",
+    "@mui/icons-material": "^5.15.18",
+    "@mui/material": "^5.15.18",
     "@popperjs/core": "^2.11.8",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

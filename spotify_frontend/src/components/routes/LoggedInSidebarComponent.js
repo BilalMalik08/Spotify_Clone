@@ -62,7 +62,7 @@ function LoggedInSidebarComponent() {
               <span>Liked Songs</span>
             </div>
           </Link>
-          <Link to="/likedsongs">
+          <Link to="/mymusic">
             <div className="nav-button">
               <FontAwesomeIcon className="fas" icon={faMusic} />
               <span>My Music</span>
