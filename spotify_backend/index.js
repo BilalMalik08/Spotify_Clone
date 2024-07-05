@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 
 // Define CORS options
 const corsOptions = {
-  origin: "https://spotify-clone-two-khaki.vercel.app",
+  origin: "http://localhost:3000",
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
@@ -30,7 +30,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection setup
 const url =
-  "mongodb+srv://spotify-clone:devBilalSpotifyCloneWeb@cluster0.yeflsll.mongodb.net/SpotifyDB?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://spotify-clone:" +
+  process.env.MONGO_PASSWORD +
+  "@cluster0.yeflsll.mongodb.net/SpotifyDB?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(url, {
@@ -43,7 +45,7 @@ mongoose
 // Passport-jwt setup
 let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = "secretKeyDevBilalSpotifyCloneWebSecretKey";
+opts.secretOrKey = process.env.SECRET_KEY;
 passport.use(
   new JwtStrategy(opts, async function (jwt_payload, done) {
     try {
