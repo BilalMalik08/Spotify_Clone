@@ -113,7 +113,7 @@ function LoggedInMyMusicFormComponent() {
                   />
                 </div>
                 <div className="col-md-11">
-                  <div className="card-body My-Music-Body">
+                  <div className="card-body My-Music-Form-Body">
                     <div className="Title-Text-Container">
                       <h5 className="card-title My-Music-Title">
                         {song.name || "Unknown Artist"}
