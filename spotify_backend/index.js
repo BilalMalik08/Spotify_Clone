@@ -15,14 +15,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Define CORS options
-const corsOptions = {
-  origin: "https://spotify-clone-frontend-eight.vercel.app",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-// Enable CORS with options
-app.use(cors(corsOptions));
+// Enable CORS
+app.use(
+  cors({
+    origin: "https://spotify-clone-frontend-eight.vercel.app", // Allow this origin
+  })
+);
 
 // Enable body-parser (included in express)
 app.use(express.json());
