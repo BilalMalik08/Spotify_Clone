@@ -18,13 +18,16 @@ const port = process.env.PORT || 4000;
 // Enable CORS
 app.use(
   cors({
-    origin: "https://spotify-clone-frontend-eight.vercel.app", // Allow this origin
+    origin: ["https://fast-food-frontend-mocha.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
 // Enable body-parser (included in express)
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // MongoDB connection setup
 const url =
