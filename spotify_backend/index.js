@@ -19,7 +19,7 @@ const port = process.env.PORT || 4000;
 // Enable CORS
 app.use(
   cors({
-    origin: ["http://spotify-clone-frontend-eight.vercel.app"],
+    origin: ["https://spotify-clone-frontend-eight.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
