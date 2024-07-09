@@ -17,7 +17,7 @@
 
 .My-Music-FormComponent-Line {
     border: 1px solid #32a280;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .My-Music-Row {
@@ -44,7 +44,7 @@
 .My-Music-Form-Body {
     display: flex;
     justify-content: space-between;
-    margin-top: -25px;
+    margin-top: -20px;
     margin-left: -15px;
     color: white;
     font-weight: bold;
